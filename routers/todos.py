@@ -35,7 +35,7 @@ def get_db():
 
 @router.get("/", response_class=HTMLResponse)
 async def read_all_by_user(request: Request, db: Session = Depends(get_db)):
-
+    print('reached')
     user = await get_current_user(request)
     if user is None:
         return RedirectResponse(url="/auth", status_code=status.HTTP_302_FOUND)
